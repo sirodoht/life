@@ -1,6 +1,6 @@
 #[derive(Debug)]
 struct State {
-    epoch: u64,
+    generation: u64,
     grid: [[bool; 5]; 5],
 }
 
@@ -19,7 +19,7 @@ fn render(_state: State) {
 
 fn main() {
     let _seed = State {
-        epoch: 0,
+        generation: 0,
         grid: [
             [false, false, false, false, false],
             [false, false, false, false, false],
