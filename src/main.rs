@@ -1,3 +1,4 @@
+use std::env;
 use std::thread::sleep;
 use std::time::Duration;
 
@@ -173,9 +174,16 @@ fn main() {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ];
     let mut state = State { generation: 0, grid: from_binary(&binary_state) };
+
+    let args: Vec<String> = env::args().collect();
+    let mut interval_ms: u64 = 100;
+    if args.len() > 1 {
+        let interval_from_args = &args[1];
+        interval_ms = interval_from_args.parse::<u64>().unwrap();
+    }
     loop {
         render(&state);
-        sleep(Duration::from_millis(100));
+        sleep(Duration::from_millis(interval_ms));
         state = evolve(state);
     }
 }
