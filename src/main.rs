@@ -1,7 +1,10 @@
+const WIDTH: usize = 5;
+const HEIGHT: usize = 5;
+
 #[derive(Debug)]
 struct State {
     generation: u64,
-    grid: [[bool; 5]; 5],
+    grid: [[bool; WIDTH]; HEIGHT],
 }
 
 fn render(_state: State) {
