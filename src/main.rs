@@ -86,10 +86,7 @@ fn get_number_of_neighbours(state: &State, row: usize, col: usize) -> u64 {
 }
 
 fn evolve(old_state: State) -> State {
-    let mut new_state = State {
-        generation: old_state.generation + 1,
-        grid: old_state.grid.clone(),
-    };
+    let mut new_state = State { generation: old_state.generation + 1, grid: old_state.grid.clone() };
 
     for row in 0..HEIGHT {
         for col in 0..WIDTH {
@@ -175,10 +172,7 @@ fn main() {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     ];
-    let mut state = State {
-        generation: 0,
-        grid: from_binary(&binary_state),
-    };
+    let mut state = State { generation: 0, grid: from_binary(&binary_state) };
     loop {
         render(&state);
         sleep(Duration::from_millis(100));
