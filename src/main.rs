@@ -111,6 +111,18 @@ fn evolve(old_state: State) -> State {
     new_state
 }
 
+fn from_binary(binary_grid: [[u8; WIDTH]; HEIGHT]) -> [[bool; WIDTH]; HEIGHT] {
+    let mut bool_grid: [[bool; WIDTH]; HEIGHT] = [[false; WIDTH]; HEIGHT];
+    for i in 0..HEIGHT {
+        for j in 0..WIDTH {
+            if binary_grid[i][j] == 1 {
+                bool_grid[i][j] = true
+            }
+        }
+    }
+    bool_grid
+}
+
 fn main() {
     let mut state = State {
         generation: 0,
