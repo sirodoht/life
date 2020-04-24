@@ -7,8 +7,8 @@ struct State {
     grid: [[bool; WIDTH]; HEIGHT],
 }
 
-fn render(_state: State) {
-    for row in _state.grid.iter() {
+fn render(state: &State) {
+    for row in state.grid.iter() {
         for square in row.iter() {
             if *square {
                 print!("■ ")
@@ -18,6 +18,9 @@ fn render(_state: State) {
         }
         println!();
     }
+    println!();
+}
+
 fn get_number_of_neighbours(state: &State, row: usize, col: usize) -> u64 {
     let mut neighbours: u64 = 0;
 
