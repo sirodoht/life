@@ -1,3 +1,6 @@
+use std::thread::sleep;
+use std::time::Duration;
+
 const WIDTH: usize = 5;
 const HEIGHT: usize = 5;
 
@@ -109,7 +112,7 @@ fn evolve(old_state: State) -> State {
 }
 
 fn main() {
-    let _seed = State {
+    let mut state = State {
         generation: 0,
         grid: [
             [false, false, false, false, false],
@@ -119,5 +122,9 @@ fn main() {
             [false, false, false, false, false],
         ],
     };
-    render(_seed);
+    loop {
+        render(&state);
+        sleep(Duration::from_secs(1));
+        state = evolve(state);
+    }
 }
