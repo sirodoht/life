@@ -8,7 +8,9 @@ Conway's Game of Life implementation in Rust using stdout as output.
 
 * **int**: interval in ms.
 
-### Single Gosper's glider gun pattern
+### Example
+
+* [Single Gosper's glider gun pattern](https://www.conwaylife.com/wiki/Gosper_glider_gun)
 
 ```
 $ ./life 1000
