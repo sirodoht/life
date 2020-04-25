@@ -6,7 +6,7 @@ Conway's Game of Life implementation in Rust using stdout as output.
 
 ### CLI arguments
 
-* *int*: interval in ms.
+* **int**: interval in ms.
 
 ### Single Gosper's glider gun pattern
 
